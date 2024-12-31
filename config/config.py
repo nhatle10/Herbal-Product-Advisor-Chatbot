@@ -1,0 +1,8 @@
+MODEL_NAME = "gpt-4o-mini"
+TEMPERATURE = 0.5
+
+USE_OPENAI_EMBEDDINGS = True
+OPENAI_EMBEDDING_MODEL = "text-embedding-3-small"
+OPENAI_EMBEDDING_DIMENSIONS = 1024
+SENTENCE_TRANSFORMER_MODEL = "hiieu/halong_embedding"
+RERANKER_MODEL = "BAAI/bge-reranker-v2-m3"
