@@ -1,5 +1,1 @@
-*.txt
-*.bin
-*.pkl
-*.json
 .venv
