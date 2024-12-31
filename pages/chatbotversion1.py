@@ -67,9 +67,9 @@ st.markdown("💡 **Hỗ trợ tư vấn 24/7 và đặt hàng nhanh chóng qua 
 
 # API setup
 try:
-    with open("pages/ngrok_url.txt", "r") as f:
-        ngrok_url = f.read().strip()
-        st.session_state.flask_api_url_1 = ngrok_url + "/v2/chat"
+    #ngrok_url = f.read().strip()
+    ngrok_url = r"https://0125-34-82-227-247.ngrok-free.app"
+    st.session_state.flask_api_url_1 = ngrok_url + "/v2/chat"
 except FileNotFoundError:
     st.error("Error: ngrok_url.txt not found. Please run app.py first.")
     st.stop()
