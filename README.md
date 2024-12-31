@@ -1,1 +1,1 @@
-# Developing a Retrieval-Augmented Generation (RAG) Chatbot Herbal Product Consultation
+# Developing a Retrieval-Augmented Generation (RAG) Chatbot for Herbal Product Consultation
