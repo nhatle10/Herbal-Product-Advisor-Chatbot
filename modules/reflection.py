@@ -47,7 +47,7 @@ class Reflection:
         # Chain the template with the language model to generate the response.
         chain = chat_template | self.llm
         response = chain.invoke({
-            "input": chat_history[-1]["content"], 
+            "input": chat_history[-1]["content"],
             "history_string": history_string
         })
 

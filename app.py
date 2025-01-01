@@ -10,8 +10,8 @@ import logging
 from modules.data_loader import load_product_data, load_documents_from_file
 from modules.chunker import load_chunks_from_file
 from modules.vector_store import initialize_embedding, load_vector_store
-from modules.retriever import initialize_retriever  # Ensure correct import
-from modules.reflection import initialize_reflection, Reflection  # Import Reflection class
+from modules.retriever import initialize_retriever
+from modules.reflection import initialize_reflection, Reflection
 from modules.llm_generator import initialize_llm_chain
 from modules.tools import ContactShop, RefuseToAnswer, Retrieve
 from config.config import (MODEL_NAME, TEMPERATURE,
@@ -31,9 +31,9 @@ embeddings = initialize_embedding(
 )
 
 vector_store = load_vector_store(embeddings, use_openai_embeddings=USE_OPENAI_EMBEDDINGS, model_name=OPENAI_EMBEDDING_MODEL if USE_OPENAI_EMBEDDINGS else SENTENCE_TRANSFORMER_MODEL, output_dir='data/vector_store')
-retriever = initialize_retriever(vector_store, list_of_chunks, list_of_documents, RERANKER_MODEL, embeddings) # Pass embeddings here
+retriever = initialize_retriever(vector_store, list_of_chunks, list_of_documents, RERANKER_MODEL, embeddings)
 
-reflection: Reflection = initialize_reflection(MODEL_NAME, TEMPERATURE) # Initialize reflection here
+reflection: Reflection = initialize_reflection(MODEL_NAME, TEMPERATURE)
 agentChain, answerPrompt, answerModel = initialize_llm_chain(MODEL_NAME, TEMPERATURE)
 answerChain = answerPrompt | answerModel
 
@@ -64,8 +64,8 @@ def chat_v2() -> Response:
         refined_query = reflection(context)
         print(f"[/v2/chat] Refined Query: {refined_query}")
     except Exception as e:
-        logging.error(f"[/v2/chat] Error in reflection: {e}")
-        refined_query = user_message['content'] # Fallback to original message
+        logging.error(f"[/v2/chat] Error in reflection for context: {context}. Error: {e}")
+        refined_query = user_message['content']
         print(f"[/v2/chat] Using original query due to error: {refined_query}")
 
     try:
@@ -127,7 +127,7 @@ def chat_v2() -> Response:
         if stream:
             def generate():
                 try:
-                    for chunk in agent_response.content.split(" "): # Consider direct stream if available
+                    for chunk in agent_response.content.split(" "):
                         yield chunk + " "
                 except Exception as e:
                     logging.error(f"[/v2/chat] Error streaming agent response: {e}")
