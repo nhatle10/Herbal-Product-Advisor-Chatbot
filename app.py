@@ -21,7 +21,7 @@ from config.config import (MODEL_NAME, TEMPERATURE,
 
 # Initialize components
 list_of_documents = load_documents_from_file("data/documents.txt")
-list_of_chunks = load_chunks_from_file("data/chunks_data/chunks_BAAI--bge-reranker-v2-m3.json")
+list_of_chunks = load_chunks_from_file("data/chunks_data/chunks_uitnlp--visobert.json")
 
 embeddings = initialize_embedding(
     USE_OPENAI_EMBEDDINGS,
