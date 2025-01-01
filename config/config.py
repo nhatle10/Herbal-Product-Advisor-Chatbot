@@ -1,4 +1,4 @@
-MODEL_NAME = "gpt-4o-mini"
+MODEL_NAME = "gpt-4o"
 TEMPERATURE = 0.5
 
 USE_OPENAI_EMBEDDINGS = True
