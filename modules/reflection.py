@@ -10,7 +10,7 @@ class Reflection:
         """
         self.llm = llm
 
-    def __call__(self, chat_history, last_items_considered=100):
+    def __call__(self, chat_history, last_items_considered=10):
         """
         Reformulates the latest user question in Vietnamese, making it standalone and understandable
         without the context of the chat history.
@@ -61,7 +61,7 @@ def initialize_reflection(model_name: str, temperature: float) -> Reflection:
 
 if __name__ == '__main__':
     parser = argparse.ArgumentParser(description="Initialize and run the Reflection process.")
-    parser.add_argument("--model_name", type=str, default="gpt-4o-mini", help="Name of the LLM model to use.")
+    parser.add_argument("--model_name", type=str, default="gpt-4o", help="Name of the LLM model to use.")
     parser.add_argument("--temperature", type=float, default=1.0, help="Temperature for the LLM model.")
 
     args = parser.parse_args()
