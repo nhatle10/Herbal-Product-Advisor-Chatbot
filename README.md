@@ -82,12 +82,12 @@ The chatbot utilizes a combination of techniques:
     This will generate `product_links.txt` (containing product URLs) and `product_data.json` (containing product details).
 
 2. **Data Preprocessing:**
+    * You need to run `data_loader.py` first to load data into `documents.txt`.
     *   `data/documents.txt`: This file is created by extracting relevant text content from `product_data.json`.
-    *   `data/chunks_data/chunks_uitnlp--visobert.json`: This file contains pre-chunked data using a specific text splitter (you might need to adjust chunking parameters based on your needs).
+    *   `data/chunks_data/chunks.json`: This file contains pre-chunked data using a specific text splitter (you might need to adjust chunking parameters based on your needs).
     *   `data/vector_store`: This directory will store the FAISS index and metadata files. The `app.py` script will create and save them here when you run it for the first time.
 
 ### Running the Chatbot
-
 1. **Start the Flask API:**
     ```bash
     python app.py
@@ -100,7 +100,7 @@ The chatbot utilizes a combination of techniques:
     *   Run the Streamlit app:
 
         ```bash
-        streamlit run pages/1_chatbot.py
+        streamlit run chatbot.py
         ```
 
     This will open the chatbot interface in your web browser.
@@ -125,10 +125,7 @@ The `config/config.py` file contains various configuration options:
 *   `app.py`: The main Flask application that handles API requests and the chatbot logic.
 *   `chatbot.py`: The Streamlit application for the chatbot user interface.
 *   `crawler.py`: Web scraper for collecting data from tratoanthang.com.
-*   `data/`:
-    *   `chunks_data/`: Stores the chunked data.
-    *   `documents.txt`: Contains the extracted text data from the website.
-    *   `vector_store/`: Stores the FAISS index and metadata.
+*   `data/`: Stores every data related.
 *   `demo.ipynb`: Jupyter Notebook demonstrating the chatbot's functionality.
 *   `Evaluation.ipynb`: Jupyter Notebook for evaluating the performance of different retrieval methods.
 *   `modules/`: Contains Python modules for different components of the chatbot:
@@ -139,12 +136,9 @@ The `config/config.py` file contains various configuration options:
     *   `retriever.py`: Implements the hybrid retrieval logic.
     *   `tools.py`: Defines the tools used by the chatbot (e.g., `ContactShop`).
     *   `vector_store.py`: Handles loading and saving the vector store.
-*   `pages/`: Contains Streamlit pages.
-    *   `1_chatbot.py`: The main chatbot page.
-    *   `ngrok_url.txt`: Stores the ngrok URL.
+*   `chatbot.py`: The main chatbot.
+*   `ngrok_url.txt`: Stores the ngrok URL.
 *   `requirements.txt`: Lists the required Python packages.
-*   `scripts.sh`, `scripts_2.sh`: Shell scripts for various tasks (e.g., installation, running).
-*   `results.ipynb`: Possibly a notebook to store and visualize results.
 
 ## 🤝 Contributions
 Contributions to this project are welcome. Please feel free to fork the repository, make changes, and submit a pull request.
