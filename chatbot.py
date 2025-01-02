@@ -60,15 +60,14 @@ with st.sidebar:
         webbrowser.open_new_tab(link_page)
 
 # Giao diện chính
-# st.image("https://tratoanthang.com/uploads/source/up/logo.png", use_container_width=True)
 st.title("🛍️ Trà Toàn Thắng Chatbot")
 st.subheader("Chào mừng bạn đến với cửa hàng của chúng tôi")
 st.markdown("💡 **Hỗ trợ tư vấn 24/7 và đặt hàng nhanh chóng qua Chatbot.**")
 
 # API setup
 try:
-    # ngrok_url = f.read().strip()
-    ngrok_url = r"https://e207-42-118-114-81.ngrok-free.app"
+    with open("ngrok_url.txt", mode="r") as f:
+        ngrok_url = f.read().strip()
     st.session_state.flask_api_url_1 = ngrok_url + "/v2/chat"
 except FileNotFoundError:
     st.error("Error: ngrok_url.txt not found. Please run app.py first.")
