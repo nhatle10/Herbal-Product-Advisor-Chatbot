@@ -14,7 +14,7 @@ The chatbot utilizes a combination of techniques:
 *   **Function Calling:** Tools like `ContactShop`, `RefuseToAnswer`, and `Retrieve` to handle specific user requests.
 *   **Refined Query:** Improves the user's query by using the conversation history and the `Reflection` module.
 *   **Streamlit:** Provides an interactive web-based user interface.
-
+  
 ## 📑 Members
 
 | Name           | Email                    | GitHub                                                                               |
