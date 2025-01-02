@@ -23,6 +23,9 @@ The chatbot utilizes a combination of techniques:
 | Lê Cảnh Nhật   | canhnhat922017@gmail.com | [![nhatle10](https://img.shields.io/badge/nhatle10-%2324292f.svg?style=flat-square&logo=github)](https://github.com/nhatle10)    |
 | Thái Ngọc Quân | 22521189@gm.uit.edu.vn   | [![QuanThaiX](https://img.shields.io/badge/QuanThaiX-%2324292f.svg?style=flat-square&logo=github)](https://github.com/QuanThaiX) |
 
+## Chatbot System Architecture:
+![alt text](images/chatbot_pipeline.jpg)
+
 ## 🚀 Getting Started
 
 ### Prerequisites
